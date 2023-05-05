@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campaign Form</title>
+    <style>
+        body {
+            background-color: #f8dada;
+            font-family: 'Segoe UI', sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        h1 {
+            font-weight: bold;
+            text-align: center;
+            margin-top: 50px;
+            font-size: 36px;
+            color: #0a494b;
+        }
+        h2 {
+            font-weight: bold;
+            font-size: 27px;
+            color: #4A4A4A;
+        }
+        h3{
+            color:rgb(241, 111, 111)
+        }
+        
+        form {
+            width: 65%;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fbe2e2;
+            box-shadow: 0 0 5px rgba(5, 5, 5, 0.1);
+            border-radius: 5px;
+        }
+        label {
+            font-size: 18px;
+            font-weight: 600;
+            color: #398fce;
+        }
+        input[type="text"], textarea {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #82d0e6;
+            border-radius: 5px;
+            width: 80%;
+            margin-bottom: 20px;
+        }
+        input[type="file"] {
+            margin-bottom: 20px;
+        }
+        button {
+            background-color:rgb(237, 161, 63);
+            color:white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #32cc53;
+        }
+    </style>
+</head>
+<body>
+    <h1>Campaign Form</h1>
+    <form action="{{ url_for('campaigns') }}" method="POST" enctype="multipart/form-data">
+        <h2>Enter your Campaign details</h2>
+        <label>Name</label><br>
+        <textarea  name="name" rows="2" cols="40"></textarea><br>
+        <label>Description</label><br>
+        <textarea  name="description" rows="8" cols="60"></textarea><br>
+        <label>Fund Required</label><br>
+        <input type="text" placeholder="amount" name="fund"><br>
+        <h3>Upload Documents</h3>
+        <label>Upload image in jpg</label><br>
+        <input type="file" id="actual-btn" name="file1"><br>
+        <label>Supported Medical Documents</label><br>
+        <input type="file" id="actual-btn" name="file2"><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
