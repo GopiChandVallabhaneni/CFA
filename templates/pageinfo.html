@@ -5,35 +5,66 @@
     <style>
       .para{
         background-size: bold;
-        font-weight: 50px;
-        font-size: 25px;
-      
+        font-weight: 60px;
+        font-size: 30px;
+        margin: 20px;
       }
+      body{
+        background-color: rgb(127, 223, 240);
+        }
+      
       .body img{
         display:'flex';
         justify-content: center;
         align-items: center;
       }
-      .share{
-        margin-left: 80%;
-        font-size: bold;
+      .share {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        padding: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: large;
+        font-weight: bold;
+        border: none;
       }
-      .don{
-        margin-left:65px;
+      .share:hover {
+        background-color: rgb(42, 65, 7);
+        color: whitesmoke;
       }
-     
-       
+      .btnstyle1{
+        padding:10px;
+        font-weight: bold;
+        font-size: 120%;
+        font-family: Arial, Helvetica, sans-serif;
+        margin-left: 25px;
+        border: none;
+        border-radius: 5px;
+      }
+      .btnstyle1:hover{
+        background-color:greenyellow;
+        color:whitesmoke;
+      }
+      .view{
+        margin:20px;
+        font-weight: bold;
+        font-size: large;
+        font-family: Arial, Helvetica, sans-serif;
+
+      }
+  
     </style>
 </head>
 <body>
 	<center><h1>{{data[1]}}</h1>
         {% set ns=namespace(file='campaigns/'+data[0]+'.jpg') %}
 	<img src='{{url_for("static",filename=ns.file)}}' alt="Image Description" width="400vw" height="400vh"/></center>
-	<p class="para">
+	
+  <p class="para">
         {{data[2]}}
     </p>
-        <a href=""><button claa="don">Donate</button></a>
-        <a href="{{url_for('viewfile',cid=data[0])}}">View Medical Documents</a>
-     <a href="https://api.whatsapp.com/send?text={{url_for('campaigndetails',cid=data[0],_external=True)}}"><button class="share">Share</button></a>
+        <a class="view"href="{{url_for('viewfile',cid=data[0])}}">View Medical Documents</a><br><br>
+        <a href="{{ url_for('donatenow', cid=data[0]) }}"><button class="btnstyle1">Donate</button></a>
+     <a href="https://api.whatsapp.com/send?text={{url_for('campaigndetails',cid=data[0],_external=True)}}"><button class="share" style="margin-top: 10px;">Share</button></a>
 </body>
 </html>

@@ -322,16 +322,7 @@ def viewfile(cid):
         return send_file(byte_data,download_name=filename,as_attachment=False)
     else:
         return redirect(url_for('login'))
-    
-@app.route('/deletenotes/<nid>')
-def deletenotes(nid):
-    cursor=mysql.connection.cursor(buffered=True)
-    cursor.execute('delete from campaign where cid=%s',[cid])
-    mysql.connection.commit()
-    cursor.close()
-    flash('Notes deleted successfully')
-    return redirect(url_for('notehome'))
-
+ 
                 
 @app.route('/approve/<cid>')
 def approve(cid):
@@ -429,5 +420,15 @@ def acreatepassword(token):
     except:
         return 'Link expired try again'
 
+
+    
+@app.route('/deletefile/<cid>')
+def delete(cid):
+    cursor=mysql.connection.cursor()
+    cursor.execute('delete from campaign where cid=%s',[cid])
+    mysql.connection.commit()
+    cursor.close()
+    flash('files deleted successfully')
+    return redirect(url_for('allcampaigns'))
 
 app.run(use_reloader=True,debug=True)   

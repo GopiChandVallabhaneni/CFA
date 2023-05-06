@@ -4,11 +4,55 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Payment Mode</title>
+    <style>
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 70px;
+}
+
+label {
+  font-size: 40 px;
+  margin-bottom: 20px;
+  font-size: 200%;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+input[type="number"] {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  font-size: large;
+  font-weight: bold;
+  background-color: #237526;
+}
+body{
+    background-color: darkgray;
+}
+
+    </style>
 </head>
 <body>
     <form method="POST" action="/pay">
-    <label>Enter Donation Ammout</label>
+    <label><b>Enter Donation Ammout</b></label><br>
     <input type="hidden" name="cid" value="{{cid}}">
     <input   name="name" value="{{name}}" hidden>
     <input type="number" placeholder="amount" name="amount">
